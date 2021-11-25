@@ -4,10 +4,10 @@
 
 namespace Engine
 {
-  class Shader
+  class IndexBuffer
   {
   public:
-    Shader();
+    IndexBuffer::IndexBuffer(long long int size, const void *data, unsigned int usage);
 
     void bind() const;
 

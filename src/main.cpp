@@ -4,6 +4,8 @@
 
 #include "init.hpp"
 #include "shader.hpp"
+#include "vertexBuffer.hpp"
+#include "indexBuffer.hpp"
 
 int main()
 {
@@ -14,7 +16,17 @@ int main()
     return -1;
   }
 
-  Shader shader;
+  const float vertices[] = {
+      0.0f, 0.5f, 0.5f,
+      0.5f, 0.0f, 0.5f,
+      -0.5f, 0.0f, 0.5f};
+
+  const unsigned int indices[] = {
+      1, 2, 3};
+
+  Engine::Shader shader;
+  Engine::VertexBuffer vbo(sizeof(vertices), vertices, GL_STATIC_DRAW);
+  Engine::IndexBuffer ibo(sizeof(indices), indices, GL_STATIC_DRAW);
 
   while (!glfwWindowShouldClose(window))
   {

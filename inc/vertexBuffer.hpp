@@ -4,10 +4,10 @@
 
 namespace Engine
 {
-  class Shader
+  class VertexBuffer
   {
   public:
-    Shader();
+    VertexBuffer::VertexBuffer(long long int size, const void *data, unsigned int usage);
 
     void bind() const;
 
