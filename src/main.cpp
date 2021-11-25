@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "init.hpp"
+#include "shader.hpp"
 
 int main()
 {
@@ -12,6 +13,8 @@ int main()
     std::cout << "Error: Failed to init program!" << std::endl;
     return -1;
   }
+
+  Shader shader;
 
   while (!glfwWindowShouldClose(window))
   {

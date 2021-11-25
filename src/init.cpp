@@ -6,7 +6,7 @@ std::tuple<bool, GLFWwindow *> init(bool enableWireframe)
   if (!glfwInit())
   {
     std::cout << "Error: Failed to init GLFW!" << std::endl;
-    return {false, NULL};
+    return {false, 0};
   }
   glfwSetErrorCallback(errorCallback);
 
@@ -15,12 +15,12 @@ std::tuple<bool, GLFWwindow *> init(bool enableWireframe)
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 
   // Create window
-  GLFWwindow *window = glfwCreateWindow(800, 600, "Minecraft", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(800, 600, "Minecraft", 0, 0);
   if (!window)
   {
     std::cout << "Error: Failed to create window!" << std::endl;
     glfwTerminate();
-    return {false, NULL};
+    return {false, 0};
   }
   glfwMakeContextCurrent(window);
 
@@ -32,7 +32,7 @@ std::tuple<bool, GLFWwindow *> init(bool enableWireframe)
   {
     std::cout << "Error: Failed to init glad!" << std::endl;
     glfwTerminate();
-    return {false, NULL};
+    return {false, 0};
   }
 
   // Set viewport to window dimensions
