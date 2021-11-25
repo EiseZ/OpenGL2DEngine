@@ -12,6 +12,6 @@ namespace Engine
   {
   public:
     static void clear(float r = 0.5f, float g = 0.5f, float b = 0.5f, float a = 1.0f);
-    static void Renderer::draw(Shader shader, VertexArray vao, IndexBuffer ibo, int count, const void *offset = 0);
+    static void draw(Shader shader, VertexArray vao, IndexBuffer ibo, int count, const void *offset = 0);
   };
 }

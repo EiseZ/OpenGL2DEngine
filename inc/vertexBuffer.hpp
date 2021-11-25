@@ -7,7 +7,7 @@ namespace Engine
   class VertexBuffer
   {
   public:
-    VertexBuffer::VertexBuffer(long long int size, const void *data, unsigned int usage);
+    VertexBuffer(long long int size, const void *data, unsigned int usage);
 
     void bind() const;
 

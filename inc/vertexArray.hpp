@@ -11,7 +11,7 @@ namespace Engine
   public:
     VertexArray();
 
-    void VertexArray::addAttrib(VertexBuffer vbo, int size, unsigned int type, int stride, const void *offset);
+    void addAttrib(VertexBuffer vbo, int size, unsigned int type, int stride, const void *offset);
 
     void bind() const;
 

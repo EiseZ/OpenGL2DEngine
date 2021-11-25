@@ -7,25 +7,29 @@ const char *fragmentShaderSource =
 #include "../src/shaders/fs.frag"
     ;
 
-Shader::Shader()
+namespace Engine
 {
-  unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vs, 1, &vertexShaderSource, 0);
-  glCompileShader(vs);
 
-  unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fs, 1, &fragmentShaderSource, 0);
-  glCompileShader(fs);
+  Shader::Shader()
+  {
+    unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vs, 1, &vertexShaderSource, 0);
+    glCompileShader(vs);
 
-  m_RendererID = glCreateProgram();
-  glAttachShader(m_RendererID, fs);
-  glAttachShader(m_RendererID, vs);
+    unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fs, 1, &fragmentShaderSource, 0);
+    glCompileShader(fs);
 
-  glLinkProgram(m_RendererID);
-  bind();
-}
+    m_RendererID = glCreateProgram();
+    glAttachShader(m_RendererID, fs);
+    glAttachShader(m_RendererID, vs);
 
-void Shader::bind() const
-{
-  glUseProgram(m_RendererID);
+    glLinkProgram(m_RendererID);
+    bind();
+  }
+
+  void Shader::bind() const
+  {
+    glUseProgram(m_RendererID);
+  }
 }

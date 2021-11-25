@@ -8,4 +8,9 @@ namespace Engine
     bind();
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, usage);
   }
+
+  void IndexBuffer::bind() const
+  {
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
+  }
 }

@@ -7,7 +7,7 @@ namespace Engine
   class IndexBuffer
   {
   public:
-    IndexBuffer::IndexBuffer(long long int size, const void *data, unsigned int usage);
+    IndexBuffer(long long int size, const void *data, unsigned int usage);
 
     void bind() const;
 
