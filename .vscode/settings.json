@@ -73,6 +73,7 @@
     "xstring": "cpp",
     "xtr1common": "cpp",
     "xutility": "cpp",
-    "*.frag": "cpp"
+    "*.frag": "cpp",
+    "*.fs": "cpp"
   }
 }

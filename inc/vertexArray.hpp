@@ -17,6 +17,6 @@ namespace Engine
 
   private:
     unsigned int m_RendererID;
-    unsigned int m_AttribAmount;
+    unsigned int m_AttribAmount = 0;
   };
 }

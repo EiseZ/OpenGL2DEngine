@@ -19,28 +19,31 @@ int main()
   }
 
   const float vertices[] = {
-      0.0f, 0.5f, 0.5f,
-      0.5f, 0.0f, 0.5f,
-      -0.5f, 0.0f, 0.5f};
+      0.5f, 0.5f, 0.0f,   // top right
+      0.5f, -0.5f, 0.0f,  // bottom right
+      -0.5f, -0.5f, 0.0f, // bottom left
+      -0.5f, 0.5f, 0.0f}; // top left
 
   const unsigned int indices[] = {
+      0, 1, 3,
       1, 2, 3};
 
   Engine::Shader shader;
   Engine::VertexArray vao;
   Engine::VertexBuffer vbo(sizeof(vertices), vertices, GL_STATIC_DRAW);
   Engine::IndexBuffer ibo(sizeof(indices), indices, GL_STATIC_DRAW);
-  vao.addAttrib(vbo, 3, GL_FLOAT, 3, 0);
+  vao.addAttrib(vbo, 3, GL_FLOAT, 3 * sizeof(float), 0);
 
   while (!glfwWindowShouldClose(window))
   {
     Engine::Renderer::clear();
 
-    Engine::Renderer::draw(shader, vao, ibo, 3);
+    Engine::Renderer::draw(shader, vao, ibo, 6);
 
     glfwPollEvents();
     glfwSwapBuffers(window);
   }
+  std::cout << glGetError() << std::endl;
 
   glfwTerminate();
   return 0;
