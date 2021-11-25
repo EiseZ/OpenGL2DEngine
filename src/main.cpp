@@ -7,6 +7,7 @@
 #include "vertexArray.hpp"
 #include "vertexBuffer.hpp"
 #include "indexBuffer.hpp"
+#include "renderer.hpp"
 
 int main()
 {
@@ -33,7 +34,9 @@ int main()
 
   while (!glfwWindowShouldClose(window))
   {
-    glClear(GL_COLOR_BUFFER_BIT);
+    Engine::Renderer::clear();
+
+    Engine::Renderer::draw(shader, vao, ibo, 3);
 
     glfwPollEvents();
     glfwSwapBuffers(window);
