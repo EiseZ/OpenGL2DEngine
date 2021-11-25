@@ -4,6 +4,7 @@
 
 #include "init.hpp"
 #include "shader.hpp"
+#include "vertexArray.hpp"
 #include "vertexBuffer.hpp"
 #include "indexBuffer.hpp"
 
@@ -25,8 +26,10 @@ int main()
       1, 2, 3};
 
   Engine::Shader shader;
+  Engine::VertexArray vao;
   Engine::VertexBuffer vbo(sizeof(vertices), vertices, GL_STATIC_DRAW);
   Engine::IndexBuffer ibo(sizeof(indices), indices, GL_STATIC_DRAW);
+  vao.addAttrib(vbo, 3, GL_FLOAT, 3, 0);
 
   while (!glfwWindowShouldClose(window))
   {
