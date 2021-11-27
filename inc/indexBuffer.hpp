@@ -8,6 +8,7 @@ namespace Engine
   {
   public:
     IndexBuffer(long long int size, const void *data, unsigned int usage);
+    IndexBuffer();
 
     void bind() const;
 

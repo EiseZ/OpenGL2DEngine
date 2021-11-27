@@ -4,6 +4,7 @@
 
 #include "init.hpp"
 #include "shader.hpp"
+#include "quad.hpp"
 #include "vertexArray.hpp"
 #include "vertexBuffer.hpp"
 #include "indexBuffer.hpp"
@@ -16,29 +17,31 @@ int main()
   {
     std::cout << "Error: Failed to init program!" << std::endl;
     return -1;
-  }
+  };
 
-  const float vertices[] = {
-      0.5f, 0.5f, 0.0f,   // top right
-      0.5f, -0.5f, 0.0f,  // bottom right
-      -0.5f, -0.5f, 0.0f, // bottom left
-      -0.5f, 0.5f, 0.0f}; // top left
-
-  const unsigned int indices[] = {
-      0, 1, 3,
-      1, 2, 3};
+  Engine::Vertex v1;
+  v1.pos = {0.5f, 0.5f, 0.0f};
+  v1.color = {0.5f, 0.0f, 0.8f, 0.0f};
+  Engine::Vertex v2;
+  v2.pos = {0.5f, -0.5f, 0.0f};
+  v2.color = {0.5f, 0.0f, 0.8f, 0.0f};
+  Engine::Vertex v3;
+  v3.pos = {-0.5f, -0.5f, 0.0f};
+  v3.color = {0.5f, 0.0f, 0.8f, 0.0f};
+  Engine::Vertex v4;
+  v4.pos = {-0.5f, 0.5f, 0.0f};
+  v4.color = {0.5f, 0.0f, 0.8f, 0.0f};
+  Engine::Vertex vertices[] = {v1, v2, v3, v4};
+  Engine::Quad quad(vertices);
 
   Engine::Shader shader;
-  Engine::VertexArray vao;
-  Engine::VertexBuffer vbo(sizeof(vertices), vertices, GL_STATIC_DRAW);
-  Engine::IndexBuffer ibo(sizeof(indices), indices, GL_STATIC_DRAW);
-  vao.addAttrib(vbo, 3, GL_FLOAT, 3 * sizeof(float), 0);
+  Engine::Renderer renderer;
 
   while (!glfwWindowShouldClose(window))
   {
-    Engine::Renderer::clear();
+    renderer.clear();
 
-    Engine::Renderer::draw(shader, vao, ibo, 6);
+    renderer.drawQuad(shader, quad);
 
     glfwPollEvents();
     glfwSwapBuffers(window);
