@@ -15,7 +15,7 @@ namespace Engine
   class Quad
   {
   public:
-    Quad(Vertex vertices[4]);
+    Quad(float x, float y, float size = 1.0f, float r = 0.5f, float g = 0.0f, float b = 0.8f, float a = 1.0f);
 
     Vertex getVertex(int i) { return m_Vertices[i]; };
 

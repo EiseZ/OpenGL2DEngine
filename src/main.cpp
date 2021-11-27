@@ -19,20 +19,7 @@ int main()
     return -1;
   };
 
-  Engine::Vertex v1;
-  v1.pos = {0.5f, 0.5f, 0.0f};
-  v1.color = {0.5f, 0.0f, 0.8f, 0.0f};
-  Engine::Vertex v2;
-  v2.pos = {0.5f, -0.5f, 0.0f};
-  v2.color = {0.5f, 0.0f, 0.8f, 0.0f};
-  Engine::Vertex v3;
-  v3.pos = {-0.5f, -0.5f, 0.0f};
-  v3.color = {0.5f, 0.0f, 0.8f, 0.0f};
-  Engine::Vertex v4;
-  v4.pos = {-0.5f, 0.5f, 0.0f};
-  v4.color = {0.5f, 0.0f, 0.8f, 0.0f};
-  Engine::Vertex vertices[] = {v1, v2, v3, v4};
-  Engine::Quad quad(vertices);
+  Engine::Quad quad(0.5f, 0.5f);
 
   Engine::Shader shader;
   Engine::Renderer renderer;
