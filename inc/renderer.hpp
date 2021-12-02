@@ -16,6 +16,7 @@ namespace Engine
   public:
     Renderer();
 
+    void drawQuadArray(Shader shader, Quad quads[], int size);
     void drawQuad(Shader shader, Quad quad);
     void clear(float r = 0.5f, float g = 0.5f, float b = 0.5f, float a = 1.0f);
     void draw(Shader shader, int count, const void *offset = 0);

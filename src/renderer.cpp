@@ -11,6 +11,14 @@ namespace Engine
   const unsigned int indices[] = {
       0, 1, 3,
       1, 2, 3};
+  void Renderer::drawQuadArray(Shader shader, Quad quads[], int size)
+  {
+    for (int i = 0; i < size; i++)
+    {
+      drawQuad(shader, quads[i]);
+    }
+  }
+
   void Renderer::drawQuad(Shader shader, Quad quad)
   {
     m_VBO.bind();

@@ -19,7 +19,7 @@ int main()
     return -1;
   };
 
-  Engine::Quad quad(0.5f, 0.5f);
+  Engine::Quad quads[] = {Engine::Quad(0.5f, 0.5f), Engine::Quad(1.0f, 1.0f)};
 
   Engine::Shader shader;
   Engine::Renderer renderer;
@@ -28,7 +28,7 @@ int main()
   {
     renderer.clear();
 
-    renderer.drawQuad(shader, quad);
+    renderer.drawQuadArray(shader, quads, sizeof(quads) / sizeof(Engine::Quad));
 
     glfwPollEvents();
     glfwSwapBuffers(window);
